@@ -9,13 +9,15 @@
     <title>Para ti, Kata</title>
     <style>
       :root {
-        --paper: #fbf4ec;
-        --paper-2: #f4e6d8;
-        --ink: #3a2f2b;
-        --ink-soft: #6b5a51;
-        --rose: #b4576a;
-        --rose-deep: #8f3f50;
-        --gold: #c79a5b;
+        /* paleta azul baby (los nombres --rose/--gold se conservan como
+           "acento" y "acento claro" para no tocar el resto del CSS) */
+        --paper: #f2fafe;
+        --paper-2: #dff0fb;
+        --ink: #22394a;
+        --ink-soft: #587287;
+        --rose: #5b9dc9;
+        --rose-deep: #2f6c96;
+        --gold: #9ecfea;
         --serif:
           "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
           Georgia, serif;
@@ -35,13 +37,13 @@
         font-family: var(--serif);
         color: var(--ink);
         background:
-          radial-gradient(900px 500px at 15% -10%, #fff7f0 0%, transparent 60%),
+          radial-gradient(900px 500px at 15% -10%, #f7fdff 0%, transparent 60%),
           radial-gradient(
             800px 600px at 110% 115%,
-            #f0d7dd 0%,
+            #bfe3f6 0%,
             transparent 55%
           ),
-          linear-gradient(160deg, #f7ece1, #eed9ca);
+          linear-gradient(160deg, #eaf6fd, #cfe8f8);
         -webkit-font-smoothing: antialiased;
         touch-action: pan-y;
       }
@@ -202,7 +204,8 @@
       }
       .cover h1 {
         font-family: var(--script);
-        font-size: clamp(52px, 17vw, 84px);
+        font-size: clamp(46px, 15vw, 80px);
+        max-width: 100%;
         color: var(--rose-deep);
         font-weight: 400;
         line-height: 1;
@@ -224,7 +227,7 @@
       p.pd {
         font-size: 15px;
         color: var(--ink-soft);
-        border-top: 1px solid rgba(199, 154, 91, 0.45);
+        border-top: 1px solid rgba(158, 207, 234, 0.6);
         padding-top: 16px;
         margin-top: 8px;
         font-style: italic;
@@ -279,7 +282,7 @@
         flex: 1;
         height: 4px;
         border-radius: 99px;
-        background: rgba(143, 63, 80, 0.18);
+        background: rgba(47, 108, 150, 0.18);
         overflow: hidden;
       }
       .progress i {
@@ -303,7 +306,7 @@
         border-radius: 50%;
         flex: 0 0 auto;
         background: rgba(255, 255, 255, 0.75);
-        border: 1px solid rgba(180, 87, 106, 0.35);
+        border: 1px solid rgba(91, 157, 201, 0.45);
         color: var(--rose-deep);
         font-size: 20px;
         cursor: pointer;
@@ -357,71 +360,40 @@
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
       <defs>
         <symbol id="ic-palm" viewBox="0 0 24 24">
-          <path d="M12 21c-.3-5 .3-8 2.3-11.4" />
-          <path d="M14.3 9.6C11.8 8 8.8 8.6 6.8 11c2.2-.8 3.8-.5 5 .3" />
-          <path d="M14.3 9.6c2.5-1.6 5.5-1 7.5 1.4-2.2-.8-3.9-.5-5.1.3" />
-          <path d="M14.3 9.6c.4-2.6-.7-5-3.2-6.4 1 2 1 3.6.5 5.1" />
-          <circle cx="14.3" cy="9.6" r=".8" />
+          <path d="M14.4 9.6c-1.7 3.3-2.4 6.9-2.2 11.4" />
+          <path d="M14.5 8.6C11.5 6.3 7.6 7.1 5 10.6c2.6-1.6 5-1.8 7-.6" />
+          <path d="M14.5 8.6c3-2.3 6.4-1.5 8.5 2-2.3-1.6-4.5-1.8-6.3-.6" />
+          <path d="M14.5 8.6C13.4 5.5 11 3.7 7.3 3.7c2.9.9 4.8 2.5 5.7 4.6" />
+          <path d="M14.5 8.6c1.6-2.8 4.3-4 7.6-3.5-2.8.4-4.8 1.7-5.9 3.6" />
+          <circle cx="13.2" cy="10.7" r=".6" />
+          <circle cx="15.6" cy="10.4" r=".6" />
         </symbol>
-        <symbol id="ic-pollo" viewBox="0 0 24 24">
-          <path d="M16.8 3.8a5 5 0 0 1 .3 10c-1 0-1.8.2-2.5.9" />
-          <path d="M14.6 14.7 9 20" />
-          <circle cx="8.3" cy="19.6" r="1.5" />
-          <circle cx="6.9" cy="21" r="1.5" />
+        <symbol id="ic-sushi" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="8.6" />
+          <circle cx="12" cy="12" r="6.4" />
+          <circle cx="12" cy="12" r="2.2" />
+          <circle cx="12" cy="7.9" r="1.1" />
+          <circle cx="8.6" cy="14" r="1.1" />
+          <circle cx="15.4" cy="14" r="1.1" />
         </symbol>
-        <symbol id="ic-enojado" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M7.8 9.3 10.6 10.6" />
-          <path d="M16.2 9.3 13.4 10.6" />
-          <circle cx="9.3" cy="12.4" r=".55" />
-          <circle cx="14.7" cy="12.4" r=".55" />
-          <path d="M8.8 16.8c1.3-1.1 5.1-1.1 6.4 0" />
-        </symbol>
-        <symbol id="ic-lego" viewBox="0 0 24 24">
-          <rect x="5" y="9" width="14" height="9.2" rx="1.1" />
-          <path d="M8 9V7.4a1.35 1.35 0 0 1 2.7 0V9" />
-          <path d="M13.3 9V7.4a1.35 1.35 0 0 1 2.7 0V9" />
-        </symbol>
-        <symbol id="ic-fleur" viewBox="0 0 24 24">
-          <path d="M12 13C10.6 9.5 10.6 6 12 3c1.4 3 1.4 6.5 0 10z" />
-          <path d="M12 13c1.9-2.4 4.8-3.6 8-3.5-1.8 2.5-4.4 3.9-8 3.5z" />
-          <path d="M12 13C10.1 10.6 7.2 9.4 4 9.5c1.8 2.5 4.4 3.9 8 3.5z" />
-          <path d="M12 13c2.4 1.6 4.2 4.1 4.8 7.5-2.8-1.2-4.4-3.7-4.8-7.5z" />
-          <path d="M12 13c-2.4 1.6-4.2 4.1-4.8 7.5 2.8-1.2 4.4-3.7 4.8-7.5z" />
-          <path d="M12 13l-1.6 4.2M12 13l1.6 4.2M12 13v4.6" />
-        </symbol>
-        <symbol id="ic-llama" viewBox="0 0 24 24">
-          <path d="M7 20.5v-3M10.2 20.5v-3M13.4 20.5v-3" />
-          <path d="M6.6 17.5h7.3a2 2 0 0 0 2-2v-3" />
-          <path d="M6.6 17.5a2.5 2.5 0 0 1 0-5H14" />
-          <path d="M15.9 12.5V8c0-1.6.9-2.9 2.3-3.4" />
-          <path d="M18.2 4.6c1.1-.4 2.1.3 2.1 1.4 0 .9-.6 1.5-1.3 2l-1 .7" />
-          <path d="M18.1 4.5 18 2.8M19.8 4.7l.8-1.5" />
-        </symbol>
-        <symbol id="ic-waves" viewBox="0 0 24 24">
+        <symbol id="ic-plane" viewBox="0 0 24 24">
           <path
-            d="M2 8c1.7 0 1.7 2 3.5 2S7.2 8 9 8s1.7 2 3.5 2S14.2 8 16 8s1.7 2 3.5 2S21 8 22 8"
-          />
-          <path
-            d="M2 13c1.7 0 1.7 2 3.5 2S7.2 13 9 13s1.7 2 3.5 2S14.2 13 16 13s1.7 2 3.5 2S21 13 22 13"
-          />
-          <path
-            d="M2 18c1.7 0 1.7 2 3.5 2S7.2 18 9 18s1.7 2 3.5 2S14.2 18 16 18s1.7 2 3.5 2S21 18 22 18"
+            d="M12 2.4c.95 0 1.6 1.15 1.6 2.6v3.7l6.9 4.1v2.1l-6.9-2.2v3.9l2.5 1.85v1.55L12 19.1l-4.1.9v-1.55L10.4 16.6v-3.9L3.5 14.9v-2.1l6.9-4.1V5c0-1.45.65-2.6 1.6-2.6z"
           />
         </symbol>
-        <symbol id="ic-helado" viewBox="0 0 24 24">
-          <path d="M8.3 10.8 12 21l3.7-10.2" />
+        <symbol id="ic-wave" viewBox="0 0 24 24">
           <path
-            d="M7.8 10.8a1.7 1.7 0 0 0 1.7-1 1.7 1.7 0 0 0 3 0 1.7 1.7 0 0 0 1.7 1"
+            d="M2.5 12.6C4.2 8 8 5.4 12.2 6c3.1.45 4.8 2.6 4.5 4.75-.3 1.95-2.25 3.1-4 2.5-1.35-.5-1.9-1.95-1.25-3"
           />
-          <path d="M8.2 8.6a3.8 3.8 0 0 1 7.6 0" />
-          <path d="M8.2 8.6h7.6" />
+          <path
+            d="M2 17.4c1.6 0 2.3-1.2 3.9-1.2s2.3 1.2 3.9 1.2 2.3-1.2 3.9-1.2 2.3 1.2 3.9 1.2 2.3-1.2 3.9-1.2"
+          />
+          <path d="M4.6 20.8c1.5 0 2.1-1 3.6-1s2.1 1 3.6 1 2.1-1 3.6-1 2.1 1 3.6 1" />
         </symbol>
-        <symbol id="ic-casco" viewBox="0 0 24 24">
-          <path d="M4 17h16v-.4a.7.7 0 0 0-.7-.7H4.7a.7.7 0 0 0-.7.7z" />
-          <path d="M5.6 15.9v-1.4C5.6 11.2 8.5 9 12 9s6.4 2.2 6.4 5.5v1.4" />
-          <path d="M12 9V6.6" />
-          <path d="M9.8 9.2C9.8 7.4 10.3 6.6 12 6.6s2.2.8 2.2 2.6" />
+        <symbol id="ic-heart" viewBox="0 0 24 24">
+          <path
+            d="M12 20.4S3.5 15.2 3.5 9.4A4.65 4.65 0 0 1 12 6.8a4.65 4.65 0 0 1 8.5 2.6c0 5.8-8.5 11-8.5 11z"
+          />
         </symbol>
       </defs>
     </svg>
@@ -599,7 +571,7 @@
         w.className = "wrap";
         c.appendChild(w);
         if (pg.cover) {
-          w.innerHTML = `<div class="heart">♥</div><h1>Para ti, Kata</h1><div class="sub">una carta, página por página</div>`;
+          w.innerHTML = `<div class="heart">♥</div><h1>Para ti,<br>Kata</h1><div class="sub">una carta, página por página</div>`;
         } else {
           if (pg.eyebrow) {
             const e = document.createElement("div");
@@ -629,34 +601,25 @@
 
       // ---- fondo con íconos ----
       const ICONS = [
-        ["llama", 5, 8, 86, -6, 0.15, 16, 0],
-        ["fleur", 87, 7, 64, 10, 0.17, 19, 1],
-        ["waves", 74, 18, 92, 0, 0.13, 21, 0],
-        ["casco", 9, 28, 72, 6, 0.15, 18, 1],
-        ["helado", 89, 38, 58, -6, 0.15, 15, 0],
-        ["lego", 6, 45, 64, -8, 0.17, 20, 1],
-        ["llama", 86, 58, 80, 8, 0.13, 17, 0],
-        ["fleur", 7, 68, 64, 0, 0.15, 22, 1],
-        ["🍗", 77, 73, 58, -6, 0.5, 16, 0],
-        ["casco", 16, 85, 64, 8, 0.14, 19, 1],
-        ["helado", 49, 90, 56, 0, 0.12, 18, 0],
-        ["fleur", 47, 3, 54, 6, 0.13, 20, 1],
-        ["enojado", 30, 60, 52, 0, 0.09, 23, 0],
-        ["waves", 63, 47, 60, 0, 0.08, 17, 1],
-        ["🍗", 60, 12, 50, -8, 0.5, 15, 0],
-        ["palm", 24, 21, 58, -6, 0.11, 21, 1],
-        ["lego", 83, 52, 62, 6, 0.17, 18, 0],
+        ["palm", 5, 8, 86, -6, 0.16, 16, 0],
+        ["heart", 87, 7, 60, 10, 0.18, 19, 1],
+        ["wave", 74, 18, 92, 0, 0.14, 21, 0],
+        ["sushi", 9, 28, 70, 6, 0.16, 18, 1],
+        ["plane", 89, 38, 58, -6, 0.16, 15, 0],
+        ["heart", 6, 45, 58, -8, 0.18, 20, 1],
+        ["palm", 86, 58, 80, 8, 0.14, 17, 0],
+        ["sushi", 7, 68, 66, 0, 0.16, 22, 1],
+        ["plane", 77, 73, 56, -6, 0.15, 16, 0],
+        ["wave", 16, 85, 72, 8, 0.15, 19, 1],
+        ["heart", 49, 90, 54, 0, 0.13, 18, 0],
+        ["sushi", 47, 3, 56, 6, 0.14, 20, 1],
+        ["plane", 30, 60, 52, 12, 0.1, 23, 0],
+        ["wave", 63, 47, 62, 0, 0.09, 17, 1],
+        ["heart", 60, 12, 46, -8, 0.12, 15, 0],
+        ["palm", 24, 21, 58, -6, 0.12, 21, 1],
+        ["sushi", 83, 52, 60, 6, 0.17, 18, 0],
       ];
-      const SVGSET = new Set([
-        "palm",
-        "fleur",
-        "llama",
-        "waves",
-        "helado",
-        "casco",
-        "enojado",
-        "lego",
-      ]);
+      const SVGSET = new Set(["palm", "sushi", "plane", "wave", "heart"]);
       const bg = document.getElementById("bg");
       ICONS.forEach(([t, l, tp, s, r, op, dur, gold], n) => {
         const emoji = !SVGSET.has(t);
