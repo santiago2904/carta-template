@@ -4,50 +4,67 @@
   file: "carta-7.html",
   date: "2026-08-11",
   dateLabel: "11 de agosto de 2026",
-  title: "Me doy por vencido, con cariño",
-  teaser: "Entendí, y lo único que quiero es que te vaya bien.",
+  title: "Creo que acá abandono, porque te amo.",
+  teaser: "Te amo, pero no por encima de mí.",
   coverTitle: "Para ti,<br>Kata",
   coverSub: "sin reclamos, de verdad",
+  spotify: "https://open.spotify.com/track/3WLXf7K7mIGEBtFq41afce",
+  song: '"Amores como el nuestro" — Jerry Rivera',
   pages: [
     { cover: true },
     {
       eyebrow: "Lo que entendí",
       lines: [
-        ["lead", "Creo que ya entendí, y me doy por vencido."],
+        [
+          "lead",
+          "Definitivamente mi amor por ti es demasiado inmenso, pero no puede estar por encima del amor por mí mismo.",
+        ],
         [
           "",
-          "No hace falta que me expliques nada. Sumé cositas y me cayó la ficha.",
+          "Yo te busco y veo que tu actitud es de ser mierda conmigo. Está bien, Kata.",
         ],
-        ["soft", "Y no lo digo dolido, lo digo tranquilo."],
       ],
     },
     {
       eyebrow: "Lo que elijo",
       lines: [
-        ["", "Si tú estás en esa tónica, yo lo respeto y ya."],
-        ["accent", "Te deseo lo mejor, así no sea conmigo."],
         [
           "",
-          "Ojalá te vaya bonito, ojalá te cuiden bien, ojalá te rías mucho.",
+          "Voy a estar dispuesto a vivir mi vida sin tenerte cerquita. A lo mejor es lo que nos conviene a los dos, no lo sé.",
+        ],
+        [
+          "accent",
+          "Voy a estar aguantándome con todas las ganas las ganas que tenga de hablarte.",
         ],
       ],
     },
     {
       eyebrow: "Lo honesto",
       lines: [
+        ["", "Cuando quieras tienes mi WhatsApp."],
+        ["accent", "Pero no me interesa ser tu amigo."],
         [
           "",
-          "No sé por cuánto tiempo voy a poder estar así, escuchándote y estando.",
+          "Cuando quieras verte conmigo podemos hablar, salir, y yo voy a estar dispuesto a todo contigo, Kata.",
         ],
-        ["", "Pero por ahora estoy, y si me buscas, aquí me encuentras."],
-        ["soft", "Sin condiciones y sin cobrarte nada."],
+      ],
+    },
+    {
+      spotify: true,
+      eyebrow: "Una canción",
+      lines: [
+        ["lead", '"Amores como el nuestro"'],
+        ["soft", "Jerry Rivera"],
       ],
     },
     {
       eyebrow: "Lo último",
       lines: [
-        ["accent", "Recuerda que acá te aman."],
-        ["lead", "La buena, mi mona."],
+        [
+          "",
+          "Hasta eso: te deseo que te vaya bien con quien vayas de paseo.",
+        ],
+        ["lead", "Pues nada, te amo, mi moña."],
       ],
     },
   ],
