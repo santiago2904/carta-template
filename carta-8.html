@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Carta #8</title>
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/letter.css" />
+  </head>
+  <body>
+    <div class="bg" id="bg"></div>
+    <div class="book">
+      <a class="back" href="index.html" aria-label="Volver a las cartas">‹</a>
+      <div class="stage" id="stage"></div>
+      <div class="hint" id="hint">
+        desliza en cualquier dirección o toca para continuar
+      </div>
+      <div class="bar">
+        <button class="arrow" id="prev" aria-label="Anterior">‹</button>
+        <div class="progress"><i id="pfill"></i></div>
+        <span class="count" id="count"></span>
+        <button class="arrow" id="next" aria-label="Siguiente">›</button>
+      </div>
+    </div>
+
+    <script src="assets/notify.js"></script>
+    <script src="assets/background.js"></script>
+    <script src="cartas/carta-8.js"></script>
+    <script src="assets/letter.js"></script>
+  </body>
+</html>
