@@ -2,7 +2,7 @@
    más vieja, y avisa por push cuando alguien entra. */
 (function () {
   var list = (window.LETTERS || []).slice().sort(function (a, b) {
-    return b.date.localeCompare(a.date);
+    return b.date.localeCompare(a.date) || b.n - a.n;
   });
 
   if (window.Notif.fresh("menu")) {
