@@ -84,23 +84,6 @@
       ],
     },
     {
-      eyebrow: "Seamos sinceros",
-      lines: [
-        [
-          "",
-          "Tú, con todas las personas con las que has estado, no respetaste metiéndote conmigo. Y yo hice exactamente lo mismo.",
-        ],
-        [
-          "",
-          "No lo digo para echártelo en la cara. Lo digo porque es la prueba de que ninguno de los dos se ha ido de verdad.",
-        ],
-        [
-          "accent",
-          "Entonces, ¿por qué no esforzarnos con todo lo que ya aprendimos, en vez de seguir dando vueltas en lo mismo?",
-        ],
-      ],
-    },
-    {
       eyebrow: "Lo que me puso a pensar",
       lines: [
         [
