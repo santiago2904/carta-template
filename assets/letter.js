@@ -75,6 +75,14 @@
         e.textContent = pg.eyebrow;
         w.appendChild(e);
       }
+      if (pg.photo) {
+        var img = document.createElement("img");
+        img.className = "photo";
+        img.src = pg.photo;
+        img.alt = pg.photoAlt || "";
+        img.loading = "lazy";
+        w.appendChild(img);
+      }
       pg.lines.forEach(function (ln) {
         var p = document.createElement("p");
         p.className = "tw " + ln[0];

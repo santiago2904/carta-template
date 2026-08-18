@@ -147,6 +147,23 @@ p.accent {
   transform: none;
   pointer-events: auto;
 }
+.photo {
+  width: 100%;
+  max-height: 46vh;
+  object-fit: contain;
+  border-radius: 16px;
+  align-self: center;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.active .photo {
+  opacity: 1;
+  transform: none;
+}
 .spotify {
   display: inline-flex;
   align-items: center;

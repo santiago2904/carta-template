@@ -164,6 +164,12 @@
       ],
     },
     {
+      eyebrow: "Nosotros",
+      photo: "assets/kata.jpeg",
+      photoAlt: "Collage de fotos de los dos",
+      lines: [["soft", "Los que fuimos. Los de hoy todavía no tienen foto."]],
+    },
+    {
       eyebrow: "Conocernos otra vez",
       lines: [
         [
