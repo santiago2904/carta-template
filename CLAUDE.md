@@ -112,8 +112,10 @@ con `fetch` (sin SDK, sin npm — Node 18+ ya trae `fetch`).
   `ANTHROPIC_API_KEY` del hosting. En Vercel: Settings -> Environment Variables.
 - El navegador manda solo los datos (pares pregunta/respuesta + textos); el prompt
   del terapeuta y el armado del caso se hacen en el servidor.
-- El system prompt le pide ser honesto: si las respuestas muestran que no hay
-  disposición, tiene que decirlo, no empujar a que vuelvan.
+- El system prompt lo encuadra en **cómo** volver, no en **si** volver: no puede
+  emitir un veredicto de que no vuelvan ni cerrar la puerta; lo difícil lo tiene
+  que traducir en un requisito concreto ("para que funcione hace falta X"). Si en
+  sus textos ella pide tiempo, el plan se ajusta a su ritmo en vez de presionarla.
 - Si la cuenta no tiene habilitada la beta `server-side-fallback-2026-07-01`, la
   primera llamada da 400 y la función reintenta sola sin `betas`/`fallbacks`.
 - Sin `ANTHROPIC_API_KEY` (o sirviendo el sitio como archivos estáticos planos) el
