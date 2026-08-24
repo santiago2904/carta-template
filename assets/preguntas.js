@@ -260,8 +260,6 @@
   /* --- envío + análisis --- */
   var send = document.getElementById("send");
   var msg = document.getElementById("sendMsg");
-  var box = document.getElementById("analisis");
-  var txt = document.getElementById("analisisTxt");
 
   /* lo que se manda al agente (y, en texto, al push) */
   function payload() {
@@ -296,38 +294,6 @@
     return lineas.join("\n");
   }
 
-  /* markdown mínimo: ## título, - viñeta, **negrita** */
-  function pintar(md) {
-    txt.innerHTML = "";
-    md.split("\n").forEach(function (linea) {
-      var l = linea.trim();
-      if (!l) return;
-      var el;
-      if (l.indexOf("## ") === 0) {
-        el = document.createElement("h3");
-        l = l.slice(3);
-      } else if (l.indexOf("- ") === 0 || l.indexOf("* ") === 0) {
-        el = document.createElement("p");
-        el.className = "bullet";
-        l = l.slice(2);
-      } else {
-        el = document.createElement("p");
-      }
-      l.split(/\*\*/).forEach(function (parte, i) {
-        if (!parte) return;
-        if (i % 2) {
-          var b = document.createElement("strong");
-          b.textContent = parte;
-          el.appendChild(b);
-        } else {
-          el.appendChild(document.createTextNode(parte));
-        }
-      });
-      txt.appendChild(el);
-    });
-    box.hidden = false;
-  }
-
   send.addEventListener("click", async function () {
     send.disabled = true;
     send.textContent = "enviando…";
@@ -336,8 +302,8 @@
       "📝 Kata respondió las preguntas",
       respondidas() + "/" + total + " respondidas\n\n" + resumen(),
     );
-    msg.textContent = "Ya me llegaron tus respuestas. Ahora el análisis…";
-    send.textContent = "leyendo tus respuestas…";
+    msg.textContent = "Ya me llegaron tus respuestas. Gracias ♥";
+    send.textContent = "enviado ♥";
 
     try {
       var r = await fetch("/api/analizar", {
@@ -348,19 +314,10 @@
       var j = await r.json();
       if (!r.ok || !j.texto) throw new Error(j.error || "respuesta inesperada");
 
-      pintar(j.texto);
-      box.scrollIntoView({ behavior: "smooth", block: "start" });
-      msg.textContent =
-        "Listo: el análisis quedó abajo, y también me llegó a mí.";
-      send.textContent = "enviado ♥";
       window.Notif.send("🧠 Análisis del terapeuta", j.texto.slice(0, 3000));
     } catch (e) {
-      msg.textContent =
-        "Tus respuestas ya me llegaron, pero el análisis no se pudo generar (" +
-        e.message +
-        "). Se puede intentar de nuevo.";
-      send.disabled = false;
-      send.textContent = "intentar el análisis otra vez";
+      /* el análisis es solo para mí: si falla, ella no se entera */
+      window.Notif.send("⚠️ El análisis falló", String(e.message || e));
     }
   });
 })();

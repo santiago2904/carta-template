@@ -105,10 +105,10 @@ Cómo funciona:
 3. Cada respuesta se guarda en `localStorage` bajo `preguntas:v2`, así que ella
    puede salir y volver sin perder nada. (Si se cambian las claves de las
    preguntas, hay que subir la versión de esa llave.)
-4. El botón final —al final de todo, después de la foto— hace tres cosas: manda
-   las respuestas por push, llama a `POST /api/analizar` y pinta el análisis en la
-   página (markdown mínimo: `## título`, `- viñeta`, `**negrita**`), y manda ese
-   análisis por push también.
+4. El botón final —al final de todo, después de la foto— manda las respuestas por
+   push, llama a `POST /api/analizar` y manda el análisis por push. **El análisis
+   no se muestra en la página**: es solo para mí. Si la llamada falla, ella no se
+   entera (llega un push `⚠️ El análisis falló`).
 
 ### El análisis (api/analizar.js)
 
@@ -126,8 +126,8 @@ con `fetch` (sin SDK, sin npm — Node 18+ ya trae `fetch`).
 - Si la cuenta no tiene habilitada la beta `server-side-fallback-2026-07-01`, la
   primera llamada da 400 y la función reintenta sola sin `betas`/`fallbacks`.
 - Sin `ANTHROPIC_API_KEY` (o sirviendo el sitio como archivos estáticos planos) el
-  análisis falla con un mensaje en pantalla, pero las respuestas **sí** se envían
-  por push: la página no se rompe.
+  análisis falla en silencio para ella, pero las respuestas **sí** se envían por
+  push y el fallo llega por push: la página no se rompe.
 
 ## Notificaciones (ntfy.sh)
 

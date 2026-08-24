@@ -218,28 +218,3 @@ textarea:focus {
   font-size: 14px;
 }
 
-/* análisis del terapeuta */
-.analisis h3 {
-  font-family: var(--serif);
-  font-size: 19px;
-  color: var(--rose-deep);
-  margin: 20px 0 8px;
-}
-.analisis p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 10px;
-  text-wrap: pretty;
-}
-.analisis p.bullet {
-  padding-left: 18px;
-  position: relative;
-}
-.analisis p.bullet::before {
-  content: "♥";
-  position: absolute;
-  left: 0;
-  color: var(--rose);
-  font-size: 13px;
-  top: 4px;
-}
