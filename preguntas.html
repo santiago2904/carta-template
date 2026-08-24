@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Preguntas</title>
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/preguntas.css" />
+  </head>
+  <body>
+    <div class="bg" id="bg"></div>
+
+    <main class="pg">
+      <a class="back" href="index.html" aria-label="Volver a las cartas">‹</a>
+
+      <div class="pg-in">
+        <header class="head">
+          <div class="heart">♥</div>
+          <h1>Preguntas</h1>
+          <p class="sub">
+            Esto es lo que espero de una relación y lo que yo doy. Respóndelas
+            con calma y con la verdad: no hay respuesta mala, solo la tuya.
+          </p>
+        </header>
+
+        <section class="sec">
+          <div class="eyebrow">Lo que espero</div>
+          <p class="lead">
+            No espero perfección. Espero estas cosas, que para mí son las que
+            hacen que una relación se sienta tranquila.
+          </p>
+          <div id="qEspero"></div>
+        </section>
+
+        <section class="sec">
+          <div class="eyebrow">Lo que yo doy</div>
+          <p class="lead">
+            Y esto es lo que pongo yo. Dime si de verdad lo sientes así, porque
+            si no lo sientes, es algo que tengo que trabajar.
+          </p>
+          <div id="qDoy"></div>
+        </section>
+
+        <section class="sec">
+          <div class="eyebrow">Lo que no funcionó</div>
+          <p class="lead">
+            Escríbelo sin filtro. Esto es lo que más me sirve leer.
+          </p>
+
+          <label class="ln" for="noFunciono">
+            ¿Qué crees que fue lo que no funcionó entre nosotros?
+          </label>
+          <textarea
+            id="noFunciono"
+            rows="4"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+
+          <label class="ln" for="noRepetir">
+            ¿Qué es lo que no quieres repetir, ni conmigo ni con nadie?
+          </label>
+          <textarea
+            id="noRepetir"
+            rows="4"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+        </section>
+
+        <section class="sec">
+          <div class="eyebrow">Lo que sí quieres</div>
+          <p class="lead">
+            Y esto es lo otro que quiero entender: qué sí te gustaba, y qué
+            quieres hoy.
+          </p>
+
+          <label class="ln" for="leGustaba">
+            ¿Qué te gustaba de nuestra relación?
+          </label>
+          <textarea
+            id="leGustaba"
+            rows="4"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+
+          <label class="ln" for="comoQuiere">
+            ¿Cómo quieres tener una relación o sostener un vínculo con alguien
+            ahora mismo?
+          </label>
+          <textarea
+            id="comoQuiere"
+            rows="5"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+
+          <label class="ln" for="faltaMi">
+            ¿Qué te falta de mí, o qué tendría que cambiar yo?
+          </label>
+          <textarea
+            id="faltaMi"
+            rows="4"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+
+          <label class="ln" for="faltaNos">
+            ¿Qué nos falta a los dos, y cómo lo mejoramos?
+          </label>
+          <textarea
+            id="faltaNos"
+            rows="4"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+        </section>
+
+        <section class="sec end">
+          <div class="progress"><i id="pfill"></i></div>
+          <div class="cnt" id="cnt"></div>
+          <button class="send" id="send" type="button">
+            enviar mis respuestas y ver el análisis ♥
+          </button>
+          <p class="soft" id="sendMsg">
+            Se guarda solo mientras respondes, así que puedes salir y volver.
+          </p>
+        </section>
+
+        <section class="sec analisis" id="analisis" hidden>
+          <div class="eyebrow">Análisis de un terapeuta de pareja</div>
+          <p class="lead">
+            Esto lo escribió un especialista leyendo todas tus respuestas. No
+            decide nada por nosotros: solo nos dice qué ve.
+          </p>
+          <div id="analisisTxt"></div>
+        </section>
+
+        <section class="sec invite" id="invita">
+          <img
+            class="photo"
+            src="assets/kata.jpeg"
+            alt="Fotos de los dos"
+            loading="lazy"
+          />
+          <h2>¿Empezamos<br />otra vez?</h2>
+          <p class="lead">
+            No para volver a lo mismo: para hacerlo bien, con calma, hablando
+            las cosas cuando pasan y sin dejar que crezcan. Quiero intentarlo
+            contigo otra vez.
+          </p>
+          <div class="ops big">
+            <button type="button" class="op" data-v="sí, quiero">
+              sí, quiero
+            </button>
+            <button type="button" class="op" data-v="hablemos">hablemos</button>
+            <button type="button" class="op" data-v="dame tiempo">
+              dame tiempo
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="assets/notify.js"></script>
+    <script src="assets/background.js"></script>
+    <script src="assets/preguntas.js"></script>
+  </body>
+</html>

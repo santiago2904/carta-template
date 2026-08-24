@@ -79,6 +79,47 @@ Cada página se centra vertical y hace scroll sola si el texto es largo.
 
 El menú se arma solo, ordenado por `date` descendente.
 
+## La ruta /preguntas
+
+Página aparte, **no usa el motor de cartas**. Son cuatro archivos:
+
+```
+preguntas.html        la página (se sirve en /preguntas gracias a vercel.json)
+assets/preguntas.css  estilos propios
+assets/preguntas.js   preguntas + respuestas + envío + llamada al análisis
+api/analizar.js       función serverless: proxy a la API de Anthropic
+```
+
+Cómo funciona:
+
+1. `assets/preguntas.js` tiene dos listas (`ESPERO`, `DOY`) de `[clave, pregunta]`
+   y seis campos de texto libre (`LIBRES`). Para cambiar el cuestionario se editan
+   esas listas y nada más.
+2. Cada respuesta se guarda en `localStorage` bajo `preguntas:v1`, así que ella
+   puede salir y volver sin perder nada.
+3. El botón final hace tres cosas: manda las respuestas por push, llama a
+   `POST /api/analizar` y pinta el análisis en la página (markdown mínimo:
+   `## título`, `- viñeta`, `**negrita**`), y manda ese análisis por push también.
+4. La respuesta a la invitación (`¿Empezamos otra vez?`) dispara su propio push en
+   el momento en que ella la toca.
+
+### El análisis (api/analizar.js)
+
+Modelo `claude-opus-5`, llamada directa a `POST https://api.anthropic.com/v1/messages`
+con `fetch` (sin SDK, sin npm — Node 18+ ya trae `fetch`).
+
+- **La API key nunca va al navegador.** Vive en la variable de entorno
+  `ANTHROPIC_API_KEY` del hosting. En Vercel: Settings -> Environment Variables.
+- El navegador manda solo los datos (pares pregunta/respuesta + textos); el prompt
+  del terapeuta y el armado del caso se hacen en el servidor.
+- El system prompt le pide ser honesto: si las respuestas muestran que no hay
+  disposición, tiene que decirlo, no empujar a que vuelvan.
+- Si la cuenta no tiene habilitada la beta `server-side-fallback-2026-07-01`, la
+  primera llamada da 400 y la función reintenta sola sin `betas`/`fallbacks`.
+- Sin `ANTHROPIC_API_KEY` (o sirviendo el sitio como archivos estáticos planos) el
+  análisis falla con un mensaje en pantalla, pero las respuestas **sí** se envían
+  por push: la página no se rompe.
+
 ## Notificaciones (ntfy.sh)
 
 Topic: **`carta-kata-santi-4t7wq9`** (en `assets/notify.js:4`).
@@ -93,6 +134,10 @@ Qué se avisa hoy:
 | 👀 va por la mitad | `assets/letter.js` — al llegar a `Math.ceil(total/2)` |
 | 💙 terminó de leerla | `assets/letter.js` — al llegar a la última página |
 | 🎵 abrió la canción | `assets/letter.js` — clic en el botón de Spotify |
+| ❓ entró a las preguntas | `assets/preguntas.js` — al cargar |
+| 📝 respondió las preguntas | `assets/preguntas.js` — botón de enviar |
+| 🧠 análisis del terapeuta | `assets/preguntas.js` — cuando llega la respuesta |
+| 💙 respondió a la invitación | `assets/preguntas.js` — clic en sí/hablemos/tiempo |
 
 Todo mensaje incluye ubicación aproximada (vía `ipwho.is`), IP, dispositivo,
 pantalla, idioma y hora.
