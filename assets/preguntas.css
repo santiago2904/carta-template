@@ -151,35 +151,22 @@ textarea:focus {
   outline-offset: 1px;
 }
 
-/* invitación */
-.invite {
+/* foto de cierre */
+.foto {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
   border-color: rgba(91, 157, 201, 0.6);
-  padding: 26px 22px 30px;
+  padding: 26px 22px 24px;
 }
-.invite .photo {
+.foto .photo {
   width: 100%;
   max-height: 44vh;
   object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.5);
 }
-.invite h2 {
-  font-family: var(--script);
-  font-size: clamp(44px, 14vw, 72px);
-  color: var(--rose-deep);
-  font-weight: 400;
-  line-height: 1.05;
-  margin: 20px 0 12px;
-}
-.ops.big {
-  justify-content: center;
-  margin-top: 18px;
-}
-.ops.big .op {
-  font-size: 17px;
-  padding: 13px 22px;
+.foto .lead {
+  margin: 20px 0 0;
 }
 
 /* cierre */

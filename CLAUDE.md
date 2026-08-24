@@ -92,16 +92,23 @@ api/analizar.js       función serverless: proxy a la API de Anthropic
 
 Cómo funciona:
 
-1. `assets/preguntas.js` tiene dos listas (`ESPERO`, `DOY`) de `[clave, pregunta]`
-   y seis campos de texto libre (`LIBRES`). Para cambiar el cuestionario se editan
-   esas listas y nada más.
-2. Cada respuesta se guarda en `localStorage` bajo `preguntas:v1`, así que ella
-   puede salir y volver sin perder nada.
-3. El botón final hace tres cosas: manda las respuestas por push, llama a
-   `POST /api/analizar` y pinta el análisis en la página (markdown mínimo:
-   `## título`, `- viñeta`, `**negrita**`), y manda ese análisis por push también.
-4. La respuesta a la invitación (`¿Empezamos otra vez?`) dispara su propio push en
-   el momento en que ella la toca.
+1. El cuestionario vive en `assets/preguntas.js`, en `BLOQUES` (tres bloques con
+   su propia escala) y `TEXTOS` (siete campos libres). Para cambiarlo se editan
+   esas dos estructuras y nada más: el render, el conteo y el payload son
+   genéricos, y `api/analizar.js` tampoco se toca.
+2. Diseño del cuestionario (importa si alguien lo edita): **nada de preguntas de
+   rasgo** ("¿eres humilde?" se contesta "sí" siempre y no informa) — todo va en
+   conducta observable. Bloque 1 = evidencia de lo que ya pasó, bloque 2 = cómo
+   funciona ella en una relación, bloque 3 = disposición y ritmo hoy. Ninguna
+   pregunta está invertida: en las tres escalas la primera opción es la más
+   favorable, para que el modelo no adivine la dirección de cada ítem.
+3. Cada respuesta se guarda en `localStorage` bajo `preguntas:v2`, así que ella
+   puede salir y volver sin perder nada. (Si se cambian las claves de las
+   preguntas, hay que subir la versión de esa llave.)
+4. El botón final —al final de todo, después de la foto— hace tres cosas: manda
+   las respuestas por push, llama a `POST /api/analizar` y pinta el análisis en la
+   página (markdown mínimo: `## título`, `- viñeta`, `**negrita**`), y manda ese
+   análisis por push también.
 
 ### El análisis (api/analizar.js)
 
@@ -139,7 +146,6 @@ Qué se avisa hoy:
 | ❓ entró a las preguntas | `assets/preguntas.js` — al cargar |
 | 📝 respondió las preguntas | `assets/preguntas.js` — botón de enviar |
 | 🧠 análisis del terapeuta | `assets/preguntas.js` — cuando llega la respuesta |
-| 💙 respondió a la invitación | `assets/preguntas.js` — clic en sí/hablemos/tiempo |
 
 Todo mensaje incluye ubicación aproximada (vía `ipwho.is`), IP, dispositivo,
 pantalla, idioma y hora.

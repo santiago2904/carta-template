@@ -21,33 +21,43 @@
           <div class="heart">♥</div>
           <h1>Preguntas</h1>
           <p class="sub">
-            Esto es lo que espero de una relación y lo que yo doy. Respóndelas
-            con calma y con la verdad: no hay respuesta mala, solo la tuya.
+            No es un examen y no hay respuesta correcta. Son preguntas concretas
+            sobre lo que vivimos y sobre lo que quieres hoy. Contéstalas con la
+            verdad, aunque me duela: es lo único que sirve.
           </p>
         </header>
 
         <section class="sec">
-          <div class="eyebrow">Lo que espero</div>
+          <div class="eyebrow">1 · Lo que viviste conmigo</div>
           <p class="lead">
-            No espero perfección. Espero estas cosas, que para mí son las que
-            hacen que una relación se sienta tranquila.
+            Esto no es sobre cómo debería haber sido, es sobre cómo se sintió de
+            verdad. Si algo casi nunca pasó, dilo.
           </p>
-          <div id="qEspero"></div>
+          <div id="qViviste"></div>
         </section>
 
         <section class="sec">
-          <div class="eyebrow">Lo que yo doy</div>
+          <div class="eyebrow">2 · Cómo funcionas tú en una relación</div>
           <p class="lead">
-            Y esto es lo que pongo yo. Dime si de verdad lo sientes así, porque
-            si no lo sientes, es algo que tengo que trabajar.
+            Esto es lo que quiero entender de ti, y no para calificarte: para
+            saber cómo cuidarte bien.
           </p>
-          <div id="qDoy"></div>
+          <div id="qTu"></div>
         </section>
 
         <section class="sec">
-          <div class="eyebrow">Lo que no funcionó</div>
+          <div class="eyebrow">3 · Dónde estás hoy</div>
           <p class="lead">
-            Escríbelo sin filtro. Esto es lo que más me sirve leer.
+            Y esto es lo más importante. Puedes decir que no sabes: eso también
+            es una respuesta.
+          </p>
+          <div id="qHoy"></div>
+        </section>
+
+        <section class="sec">
+          <div class="eyebrow">4 · Lo que quieras escribirme</div>
+          <p class="lead">
+            Escríbelo sin filtro. Estas son las que más me sirve leer.
           </p>
 
           <label class="ln" for="noFunciono">
@@ -67,14 +77,6 @@
             rows="4"
             placeholder="Escríbelo aquí…"
           ></textarea>
-        </section>
-
-        <section class="sec">
-          <div class="eyebrow">Lo que sí quieres</div>
-          <p class="lead">
-            Y esto es lo otro que quiero entender: qué sí te gustaba, y qué
-            quieres hoy.
-          </p>
 
           <label class="ln" for="leGustaba">
             ¿Qué te gustaba de nuestra relación?
@@ -92,6 +94,15 @@
           <textarea
             id="comoQuiere"
             rows="5"
+            placeholder="Escríbelo aquí…"
+          ></textarea>
+
+          <label class="ln" for="paraConfiar">
+            ¿Qué necesitarías ver de mí para volver a confiar?
+          </label>
+          <textarea
+            id="paraConfiar"
+            rows="4"
             placeholder="Escríbelo aquí…"
           ></textarea>
 
@@ -114,28 +125,17 @@
           ></textarea>
         </section>
 
-        <section class="sec invite" id="invita">
+        <section class="sec foto">
           <img
             class="photo"
             src="assets/kata.jpeg"
             alt="Fotos de los dos"
             loading="lazy"
           />
-          <h2>¿Empezamos<br />otra vez?</h2>
           <p class="lead">
-            No para volver a lo mismo: para hacerlo bien, con calma, hablando
-            las cosas cuando pasan y sin dejar que crezcan. Quiero intentarlo
-            contigo otra vez.
+            Gracias por tomarte el tiempo de contestarlas. Con calma, sin
+            afanes: solo quería entender bien.
           </p>
-          <div class="ops big">
-            <button type="button" class="op" data-v="sí, quiero">
-              sí, quiero
-            </button>
-            <button type="button" class="op" data-v="hablemos">hablemos</button>
-            <button type="button" class="op" data-v="dame tiempo">
-              dame tiempo
-            </button>
-          </div>
         </section>
 
         <section class="sec end">

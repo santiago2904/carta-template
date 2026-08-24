@@ -11,10 +11,18 @@ var SYSTEM = [
   "y terapia centrada en las emociones). Vas a leer un cuestionario que Santiago",
   "preparó para Kata: estuvieron juntos, se separaron, y él quiere volver.",
   "",
-  "El cuestionario tiene tres partes: (1) lo que Santiago espera de una relación,",
-  "respondido por ella sobre sí misma; (2) lo que Santiago da, respondido por ella",
-  "según lo que sintió de verdad; (3) textos libres de ella sobre qué no funcionó,",
-  "qué no quiere repetir, qué le gustaba y cómo quiere vivir un vínculo hoy.",
+  "El cuestionario tiene cuatro partes, todas respondidas por ella: (1) lo que",
+  "vivió con él — evidencia de lo que él daba de verdad; (2) cómo funciona ella",
+  "en una relación, en conductas concretas; (3) dónde está hoy: disposición y",
+  "ritmo; (4) textos libres sobre qué no funcionó, qué no quiere repetir, qué le",
+  "gustaba, cómo quiere un vínculo hoy y qué necesitaría para volver a confiar.",
+  "",
+  "Cómo leerlo: en cada bloque de escala la primera opción es la más favorable y",
+  "la última la menos. 'No sabría decir' o 'no sé todavía' son falta de datos, no",
+  "una respuesta negativa. El bloque 3 es el que manda para el ritmo del plan, y",
+  "los textos libres pesan más que las escalas: ahí está lo que ella pide de",
+  "verdad. Si un patrón aparece en las escalas y ella lo nombra en los textos,",
+  "eso es lo prioritario del plan.",
   "",
   "Escribe un análisis dirigido a los dos, en español de Colombia, cálido pero",
   "profesional y directo.",
@@ -49,48 +57,52 @@ function limpia(v, max) {
   return v.trim().slice(0, max || 1500);
 }
 
-/* Arma el texto del caso aquí, en el servidor: el navegador solo manda datos. */
+/* Arma el texto del caso aquí, en el servidor: el navegador solo manda datos.
+   Es genérico a propósito — si el cuestionario cambia en preguntas.js, esto no
+   se toca. */
 function armarCaso(datos) {
   var out = [];
 
-  function bloque(titulo, items) {
-    out.push("### " + titulo);
-    (Array.isArray(items) ? items : []).slice(0, 40).forEach(function (it) {
-      out.push(
-        "- " +
-          limpia(it && it.q, 200) +
-          " → " +
-          (limpia(it && it.a, 40) || "sin responder"),
-      );
+  (Array.isArray(datos.bloques) ? datos.bloques : [])
+    .slice(0, 6)
+    .forEach(function (b) {
+      out.push("### " + (limpia(b && b.titulo, 120) || "Bloque"));
+      if (b && Array.isArray(b.escala)) {
+        out.push(
+          "(escala, de la más favorable a la menos: " +
+            b.escala
+              .slice(0, 6)
+              .map(function (e) {
+                return limpia(e, 40);
+              })
+              .join(" / ") +
+            ")",
+        );
+      }
+      (b && Array.isArray(b.respuestas) ? b.respuestas : [])
+        .slice(0, 40)
+        .forEach(function (it) {
+          out.push(
+            "- " +
+              limpia(it && it.q, 220) +
+              " → " +
+              (limpia(it && it.a, 40) || "sin responder"),
+          );
+        });
+      out.push("");
     });
-    out.push("");
-  }
-
-  bloque(
-    "Lo que Santiago espera (respondido por ella sobre sí misma)",
-    datos.espero,
-  );
-  bloque(
-    "Lo que Santiago da (respondido por ella según lo que sintió)",
-    datos.doy,
-  );
 
   out.push("### Respuestas abiertas de ella");
-  [
-    ["Qué cree que no funcionó", datos.noFunciono],
-    ["Qué no quiere repetir", datos.noRepetir],
-    ["Qué le gustaba de la relación", datos.leGustaba],
-    ["Cómo quiere vivir un vínculo hoy", datos.comoQuiere],
-    ["Qué le falta de Santiago / qué tendría que cambiar él", datos.faltaMi],
-    ["Qué nos falta a los dos y cómo mejorarlo", datos.faltaNos],
-  ].forEach(function (p) {
-    out.push("- " + p[0] + ": " + (limpia(p[1], 2000) || "(vacío)"));
-  });
-  out.push("");
-  out.push(
-    "Respuesta de ella a la invitación de volver a intentarlo: " +
-      (limpia(datos.invitacion, 60) || "sin responder"),
-  );
+  (Array.isArray(datos.textos) ? datos.textos : [])
+    .slice(0, 12)
+    .forEach(function (t) {
+      out.push(
+        "- " +
+          limpia(t && t.p, 220) +
+          "\n  " +
+          (limpia(t && t.r, 2000) || "(vacío)"),
+      );
+    });
 
   return out.join("\n");
 }
